@@ -1,0 +1,15 @@
+<div class="w-75 m-auto my-5">
+    <h1>Register Now:</h1>
+    <form [formGroup]="register"(ngSubmit)="sendData()">
+        <input formControlName="name" type="text" class="form-control my-3"  placeholder="Type your name.."/>
+        <app-alert-error [formName]="register"controlName="name"/>
+        <input formControlName="email" type="email" class="form-control my-3"  placeholder="Type your email.."/>
+        <app-alert-error [formName]="register"controlName="email"/>
+        <input formControlName="password" type="password" class="form-control my-3"  placeholder="Type your password.."/>
+        <app-alert-error [formName]="register"controlName="password"/>
+        <input formControlName="rePassword" type="password" class="form-control my-3"  placeholder="Type your repassword.."/>
+        <app-alert-error [formName]="register"controlName="rePassword"/>
+        <button class="btn text-white bg-main w-100"[disabled]="register.invalid">Register</button>
+
+    </form>
+</div>

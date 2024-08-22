@@ -1,0 +1,13 @@
+<div class="container mt-5 ">
+    <div class="row">
+        @for (brand of allBrands; track $index) {
+        <div class="col-lg-2">
+            <div class="product p-2">
+                    <img [src]="brand.image" class="w-100" alt=""> 
+                    <h5 class="text-main">{{brand.name}}</h5>   
+                </div>
+               </div>
+                }
+            </div>
+        </div>
+   
