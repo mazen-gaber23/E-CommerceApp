@@ -12,4 +12,7 @@ export class ProductsService {
   getproducts():Observable<any>{
     return this._HttpClient.get(baseUrl+'/api/v1/products')
   }
+  getDetails(id:string):Observable<any>{
+    return this._HttpClient.get(baseUrl+`/api/v1/products/${id}`)
+  }
 }

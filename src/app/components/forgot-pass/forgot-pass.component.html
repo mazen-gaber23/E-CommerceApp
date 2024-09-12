@@ -1,0 +1,60 @@
+@if(step==1){
+   <div class="w-75 m-auto my-5">
+    <h1>Forgot password:</h1>
+    <form [formGroup]="forgotPassword"(ngSubmit)="submitStep1()">
+        <input  [ngClass]="{
+            'is-valid':!forgotPassword.get('email')?.errors&&forgotPassword.get('email')?.dirty,
+            'is-invalid':forgotPassword.get('email')?.errors&&forgotPassword.get('email')?.dirty,
+        }" formControlName="email" type="email" class="form-control my-3"  placeholder="Type your email.."/>
+        <app-alert-error [formName]="forgotPassword"controlName="email"/>
+       
+        <p class="h3 text-danger">{{erorr}}</p>
+        <button class="btn text-white bg-main w-100"[disabled]="forgotPassword.invalid||isBtnSubmit">
+            @if(isBtnSubmit==false){send} 
+            @else  { <i class="fa-solid fa-spinner fa-spin"></i>}
+        </button>
+    </form>
+</div> 
+}
+@else if (step==2) {
+    <div class="w-75 m-auto my-5">
+    <h1> Verfy Reset Code:</h1>
+    <form [formGroup]="verifyResetCode"(ngSubmit)="submitStep2()">
+        <input  [ngClass]="{
+            'is-valid':!verifyResetCode.get('resetCode')?.errors&&verifyResetCode.get('resetCode')?.dirty,
+            'is-invalid':verifyResetCode.get('resetCode')?.errors&&verifyResetCode.get('resetCode')?.dirty,
+        }" formControlName="resetCode" type="text" class="form-control my-3"  placeholder="Type your resetCode.."/>
+        <app-alert-error [formName]="verifyResetCode"controlName="resetCode"/>
+       
+        <p class="h3 text-danger">{{erorr}}</p>
+        <button class="btn text-white bg-main w-100"[disabled]="verifyResetCode.invalid||isBtnSubmit">
+            @if(isBtnSubmit==false){Verfy} 
+            @else  { <i class="fa-solid fa-spinner fa-spin"></i>}
+        </button>
+    </form>
+</div>
+}
+@else if (step==3){
+  <div class="w-75 m-auto my-5">
+    <h1>Reset Password:</h1>
+    <form [formGroup]="resetPassword"(ngSubmit)="submitStep3()">
+        <input  [ngClass]="{
+            'is-valid':!resetPassword.get('email')?.errors&&resetPassword.get('email')?.dirty,
+            'is-invalid':resetPassword.get('email')?.errors&&resetPassword.get('email')?.dirty,
+        }" formControlName="email" type="email" class="form-control my-3"  placeholder="Type your email.."/>
+        <app-alert-error [formName]="resetPassword"controlName="email"/>
+       
+        <input  [ngClass]="{
+            'is-valid':!resetPassword.get('newPassword')?.errors&&resetPassword.get('newPassword')?.dirty,
+            'is-invalid':resetPassword.get('newPassword')?.errors&&resetPassword.get('newPassword')?.dirty,
+        }" formControlName="newPassword" type="password" class="form-control my-3"  placeholder="Type your newPassword.."/>
+        <app-alert-error [formName]="resetPassword"controlName="newPassword"/>
+       
+        <p class="h3 text-danger">{{erorr}}</p>
+        <button class="btn text-white bg-main w-100"[disabled]="resetPassword.invalid||isBtnSubmit">
+            @if(isBtnSubmit==false){Reset} 
+            @else  { <i class="fa-solid fa-spinner fa-spin"></i>}
+        </button>
+    </form>
+</div>  
+} 

@@ -1,1 +1,21 @@
-<p>signin works!</p>
+<div class="w-75 m-auto my-5">
+    <h1>Login Now:</h1>
+    <form [formGroup]="login"(ngSubmit)="sendData()">
+        <input  [ngClass]="{
+            'is-valid':!login.get('email')?.errors&&login.get('email')?.dirty,
+            'is-invalid':login.get('email')?.errors&&login.get('email')?.dirty,
+        }" formControlName="email" type="email" class="form-control my-3"  placeholder="Type your email.."/>
+        <app-alert-error [formName]="login"controlName="email"/>
+        <input   [ngClass]="{
+            'is-valid':!login.get('password')?.errors&&login.get('password')?.dirty,
+            'is-invalid':login.get('password')?.errors&&login.get('password')?.dirty,
+        }"formControlName="password" type="password" class="form-control  my-3"  placeholder="Type your password.."/>
+        <app-alert-error [formName]="login"controlName="password"/>
+        <p class="h3 text-danger">{{erorr}}</p>
+        <button class="btn text-white bg-main w-100"[disabled]="login.invalid||isBtnSubmit">
+            @if(isBtnSubmit==false){Login} 
+            @else  { <i class="fa-solid fa-spinner fa-spin"></i>}
+        </button>
+      <a routerLink="/forgot-Pass" class="link-danger">forget password?</a>
+    </form>
+</div>

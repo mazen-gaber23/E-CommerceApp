@@ -1,0 +1,8 @@
+<h2 class="mb-4">Popular Categories:</h2>
+<owl-carousel-o [options]="customOptions">
+@for (category of allCategories; track $index) {
+    <ng-template carouselSlide [id]="category._id">
+      <img [src]="category.image" height="300px" [alt]="category.name" [title]="category.name">
+    </ng-template>
+}   
+</owl-carousel-o>
