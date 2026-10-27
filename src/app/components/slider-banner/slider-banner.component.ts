@@ -15,24 +15,29 @@ export class SliderBannerComponent {
     touchDrag: false,
     pullDrag: false,
     rtl:true,
+    autoplay: true,
+    autoplayTimeout: 2550,
+    slideTransition: 'linear',
+    smartSpeed: 2500,
+    autoplayHoverPause: true,
     dots: false,
-    navSpeed: 700,
+    navSpeed: 1000,
     navText: [],
     responsive: {
       0: {
         items: 1
       },
       400: {
-        items: 2
+        items: 1
       },
       740: {
-        items: 3
+        items: 1
       },
       940: {
-        items: 4
+        items: 1
       }
     },
-    nav: true
+    nav: false
   }
 
 }

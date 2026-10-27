@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/interfaces/product';
 import { AuthService } from '../../core/services/auth.service';
-import { CategoriesSliderComponent } from "../categories-slider/categories-slider.component";
 import { SliderBannerComponent } from "../slider-banner/slider-banner.component";
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../core/services/cart.service';
@@ -16,7 +15,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CategoriesSliderComponent, SliderBannerComponent,RouterLink,CurrencyPipe,SoldOutPipe,SearchPipe,FormsModule],
+  imports: [SliderBannerComponent,RouterLink,CurrencyPipe,SoldOutPipe,SearchPipe,FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
